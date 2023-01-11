@@ -5,9 +5,21 @@ import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '
 })
 export class ErrorMsgDirective implements OnInit, OnChanges {
 
+  private _color:string ='red';
+  private _message:string ='required**';
   htmlElement: ElementRef<HTMLElement>;
-  @Input() color: string ='red'
-  @Input() message: string ='Requiered**'
+
+
+  //@Input() color: string ='red'
+  @Input() set color(value: string){
+    this.htmlElement.nativeElement.style.color=value;
+    this._color=value;
+  }
+  //@Input() message: string ='Required**'
+  @Input() set message(value: string){
+    this.htmlElement.nativeElement.innerText= value;
+    this._message=value;
+  }
 
   constructor(private el: ElementRef<HTMLElement>) {
     //console.log('directive constructor');
@@ -16,7 +28,7 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['message']) {
+    /*if (changes['message']) {
       const message = changes['message'].currentValue;
       this.htmlElement.nativeElement.innerText= message;
     }
@@ -25,13 +37,13 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
       this.htmlElement.nativeElement.style.color= color;
     }
     
-    console.log(changes);
+    console.log(changes);*/
   }
 
   ngOnInit(): void {
     //console.log('Directive OnInit');
-    this.setColor();
-    this.setMessage();
+    //this.setColor();
+    //this.setMessage();
     this.setClass();
   }
 
