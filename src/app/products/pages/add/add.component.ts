@@ -9,8 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
 
- text1: string ='ErickRV'
- color1: string ='blue'
+ text1: string ='ErickRV';
+ color1: string ='blue';
 
   myForm: FormGroup = this.fb.group({
     name: ['',Validators.required]
@@ -22,7 +22,7 @@ export class AddComponent implements OnInit {
   }
 
   changeName(){
-    this.text1='ErickRV17';
+    this.text1=Math.random().toString();;
   }
 
   changeColor(){

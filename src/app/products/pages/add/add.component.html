@@ -36,3 +36,12 @@
 <h3 class="mt-5">Form</h3>
 <pre>Value: {{myForm.value | json}}</pre>
 <pre>Valid: {{myForm.valid}}</pre>
+
+<div class="row mt-5" 
+     *customIf="myForm.valid">
+    <div class="col">
+        <div class="alert alert-primary">
+            Todo Ok!
+        </div>
+    </div>
+</div>
