@@ -30,4 +30,10 @@ export class AddComponent implements OnInit {
     this.color1= color;
   }
 
+  error(value: string): boolean{
+    return this.myForm.get(value)?.invalid || false;
+  }
+
+
+
 }
